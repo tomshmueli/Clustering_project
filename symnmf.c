@@ -29,29 +29,6 @@ void free_matrix(MATRIX *matrix)
 }
 
 /**
- * Frees an array of matrices terminated by a NULL pointer.
- */
-void free_matrices(MATRIX **matrices)
-{   
-    int i;
-    if (matrices == NULL) {
-        return;
-    }
-
-    for (i = 0; matrices[i] != NULL; i++) {
-        if (matrices[i] != NULL) {
-            free_matrix(matrices[i]);
-        }
-    }
-
-    /* Optionally, free the array of MATRIX pointers itself */ 
-    free(matrices);
-}
-
-
-
-
-/**
  * Creates a matrix struct in M(mxn).
 */
 int init_matrix(MATRIX *matrix, int col, int row)
