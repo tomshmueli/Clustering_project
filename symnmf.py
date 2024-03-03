@@ -12,6 +12,7 @@ def symnmf(dp, k):
     """
     normalized_similarity_W = symnmfAPI.norm(dp)
     if normalized_similarity_W is None:
+        print("An Error Has Occurred")
         return None
 
     n = len(dp)
@@ -27,6 +28,7 @@ def main():
     """
     argc = len(sys.argv)
     if argc != 4:
+        print("An Error Has Occurred")
         return
     k = int(sys.argv[1])
     goal = sys.argv[2]
