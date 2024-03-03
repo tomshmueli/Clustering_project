@@ -32,18 +32,19 @@ void free_matrix(MATRIX *matrix)
  * Frees an array of matrices terminated by a NULL pointer.
  */
 void free_matrices(MATRIX **matrices)
-{
+{   
+    int i;
     if (matrices == NULL) {
         return;
     }
 
-    for (int i = 0; matrices[i] != NULL; i++) {
+    for (i = 0; matrices[i] != NULL; i++) {
         if (matrices[i] != NULL) {
             free_matrix(matrices[i]);
         }
     }
 
-    // Optionally, free the array of MATRIX pointers itself
+    /* Optionally, free the array of MATRIX pointers itself */ 
     free(matrices);
 }
 
@@ -402,16 +403,16 @@ int symnmf(MATRIX *W, MATRIX *H)
     MATRIX *WH, *Ht, *HHt, *HHtH, *prev_H;
     WH = Ht = HHt = HHtH = NULL;
     prev_H = (MATRIX *)malloc(sizeof(MATRIX));
-    MATRIX* matrices[] = {WH, Ht, HHt, HHtH, prev_H};
-
-    col = H->col;
-    row = H->row;
     
     if (init_matrix(prev_H, H->col, H->row) == 1) {
-        free_matrices(matrices);
+        printf("An Error Has Occurred");
         return 1;
     }
 
+    col = H->col;
+    row = H->row;
+
+    /* copy matrix */
     for (i = 0; i < H->col; i++) {
         for (j = 0; j < H->row; j++) {
             prev_H->cord[i][j] = H->cord[i][j];
@@ -424,10 +425,10 @@ int symnmf(MATRIX *W, MATRIX *H)
         HHt = matrix_product(H, Ht);
         HHtH = matrix_product(HHt, H);
         if (WH == NULL || Ht == NULL || HHt == NULL || HHtH == NULL) {
-            free_matrices(matrices);
+            printf("An Error Has Occurred");
             return 1;
         }
-
+        
         for (i = 0; i < col; i++) {
             for (j = 0; j < row; j++) {
                 H->cord[i][j] = (H->cord[i][j]) * (0.5 + 0.5*(WH->cord[i][j] / HHtH->cord[i][j]));
