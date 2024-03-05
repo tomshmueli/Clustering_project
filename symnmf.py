@@ -59,9 +59,7 @@ def main():
 
     # print result_matrix
     for row in result_matrix:
-        for coord in row:
-            print(f"{coord:.4f}", end=",")
-        print()
+        print(",".join(f"{coord:.4f}" for coord in row))
 
 
 if __name__ == "__main__":
