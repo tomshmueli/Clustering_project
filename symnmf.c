@@ -84,7 +84,9 @@ void print_matrix(MATRIX *matrix)
     for (i = 0; i < col; i++) {
         for (j = 0; j < row; j++) {
             printf("%.4f", (matrix->cord)[i][j]);
-            printf("%s", (j == row - 1) ? "" : ",");
+            if (!(j == row-1)) {
+                printf(",");
+            }
         }
         printf("\n");
     }
