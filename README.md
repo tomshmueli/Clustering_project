@@ -1,6 +1,6 @@
 # Clustering Algorithms Project:
-** Symmetric Non-negative Matrix Factorization (SymNMF) **
-** Kmeans Algorithm **
+**Symmetric Non-negative Matrix Factorization (SymNMF)**
+**Kmeans Algorithm**
 
 ## Overview
 This project implements a clustering algorithm based on Symmetric Non-negative Matrix Factorization (SymNMF), comparing its effectiveness to the K-means algorithm. It involves the creation of several components in both Python and C to achieve the desired functionality.
