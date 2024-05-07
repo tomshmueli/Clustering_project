@@ -1,5 +1,5 @@
 # Clustering Algorithms Project:
-**Symmetric Non-negative Matrix Factorization (SymNMF)**
+**Symmetric Non-negative Matrix Factorization (SymNMF)**\n
 **Kmeans Algorithm**
 
 ## Overview
